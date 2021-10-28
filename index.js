@@ -31,7 +31,7 @@ app.get('/get-data/', async (req, res) => {
           res.status(404).send(error);
      }       
  })
- app.listen(3000, () => {
+ app.listen(process.env.PORT || 5000, () => {
     console.log("Application started and Listening on port 3000");
   });
   
