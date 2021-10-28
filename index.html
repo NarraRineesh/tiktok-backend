@@ -24,34 +24,47 @@
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
     />
+    <script type="text/javascript">
+      function googleTranslateElementInit() {
+        new google.translate.TranslateElement(
+          { pageLanguage: "en" },
+          "google_translate_element"
+        );
+      }
+    </script>
+    <script
+      type="text/javascript"
+      src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
+    ></script>
     <link rel="stylesheet" href="assets/css/templatemo-softy-pinko.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.0/jquery-ui.min.js"></script>
   </head>
 
   <body>
-    <nav class="navbar p-4">
+    <nav class="navbar">
       <a href="#" class="logo">
         <img
           src="https://narayanaknr.tech/assets/img/logo-light.png"
-          alt="Softy Pinko"
+          alt="KNR Tech"
         />
       </a>
+      <div id="google_translate_element"></div>
     </nav>
 
     <!-- ***** Welcome Area Start ***** -->
     <div class="welcome-area" id="welcome">
       <!-- ***** Header Text Start ***** -->
-      <div class="header-text">
+      <div class="header-text pt-3 pb-3">
         <div class="container">
           <div class="row">
             <div class="col-12">
               <h1>DOWNLOAD TIKTOK VIDEO WITHOUT <strong>WATERMARK</strong></h1>
 
-              <div class="input-group mb-3 input-group-lg">
+              <div class="input-group mb-3">
                 <input
                   type="text"
-                  style="padding: 35px"
+                  style="padding: 26px"
                   placeholder="Paste link here"
                   class="form-control"
                 />
@@ -59,6 +72,66 @@
                   <button class="btn btn-danger" type="button" id="search-btn">
                     Download
                   </button>
+                </div>
+              </div>
+              <div id="loader">
+                <div class="jumper">
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                </div>
+              </div>
+              <div id="result-error" class="card p-3">
+                <div class="row">
+                  <div
+                    class="col d-flex align-items-center justify-content-center"
+                  >
+                    <img
+                      src="./assets/images/error.png"
+                      alt=""
+                      width="60"
+                      class="img-fluid"
+                    />
+                  </div>
+                </div>
+                <h2 class="text-danger mt-3">Uh-oh... Something suspicious!</h2>
+                <h5 class="mt-3">
+                  It seems that your token is invalid. Are you trying to dig
+                  something here?
+                </h5>
+              </div>
+              <div id="result-success" class="card p-4">
+                <div class="row" id="result-base">
+                  <div class="col">
+                    <div class="card">
+                      <!-- <img class="card-img-top" /> -->
+                      <span class="btn btn-primary" id="download_video">
+                        <span class="result-download-video"
+                          >With Watermark</span
+                        >
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col" id="result-base">
+                    <div class="card mt-3">
+                      <span class="btn btn-success" id="download_wless_video">
+                        <span class="result-download-wless-video"
+                          >without Watermark</span
+                        >
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col" id="result-base">
+                    <div class="card mt-3 mb-3">
+                      <span class="btn btn-info" id="download_music">
+                        <span class="result-download-music">Only Music</span>
+                      </span>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -70,19 +143,19 @@
           </div>
           <div class="row">
             <div class="col-12">
-              <div class="card">
-                <span>
+              <div class="card p-3">
+                <small>
                   https://www.tiktok.com/@youneszarou/video/6942436555692805381
-                </span>
-                <span>Or</span>
-                <span>https://vt.tiktok.com/ZSJNV7cVn/</span>
+                </small>
+                <small>Or</small>
+                <small>https://vt.tiktok.com/ZSJNV7cVn/</small>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <section class="section home-feature">
+    <section class="section home-feature pt-sm-2 pt-md-5">
       <div class="container">
         <div class="row">
           <div class="col-lg-12">
@@ -145,7 +218,48 @@
       </div>
     </section>
     <!-- ***** Features Small End ***** -->
-
+    <!-- ***** How to start ***** -->
+    <section class="bg-light p-2">
+      <hr />
+      <div class="row d-flex justify-content-center">
+        <div class="col-md-6 col-sm-12 text-center">
+          <h4 class="mb-3">Download Tik Tok video without watermark</h4>
+          <p>
+            KNR Tech is a free tool helping you download videos from TikTok
+            without a watermark online. sssTikTok is one of the most popular
+            online TikTok video download services that can help you save videos
+            from TikTok with the highest quality in an MP4 file format with HD
+            resolution. To find out how to use the TikTok downloader, follow the
+            instructions below. It is easy. You can save videos in three simple
+            steps.
+          </p>
+        </div>
+      </div>
+      <hr />
+      <div class="row d-flex justify-content-center">
+        <div class="col-md-6 col-sm-12">
+          <h4 class="mb-3 text-center">
+            How to download TikTok video without watermark?
+          </h4>
+          <ol class="text-start">
+            <li>
+              <strong>Find a video</strong> - play a video that you want to
+              download to your mobile device, use the TikTok app;
+            </li>
+            <li>
+              <strong>Copy a video link</strong> - tap "Share" (the arrow button
+              on top of a chosen video), and then tap "Copy link";
+            </li>
+            <li>
+              <strong>Download</strong> - go back to sssTikTok and paste the
+              link in the text field on the page and tap "Download".
+            </li>
+          </ol>
+        </div>
+      </div>
+      <hr />
+    </section>
+    <!-- ***** How to End ***** -->
     <!-- ***** Features Big Item Start ***** -->
     <section class="section pt-5 pb-5" id="features">
       <div class="container">
@@ -169,7 +283,7 @@
             "
           >
             <div class="left-heading">
-              <h2 class="section-title">
+              <h2 class="section-title mb-3">
                 Download any TikTok video on mobile phone (Android, iOS)
               </h2>
             </div>
@@ -210,7 +324,7 @@
             "
           >
             <div class="left-heading">
-              <h2 class="section-title">
+              <h2 class="section-title mb-3">
                 Download TikTok video without watermark on PC
               </h2>
             </div>
@@ -275,51 +389,7 @@
         </div>
       </div>
     </footer>
-    <div id="myModal" class="modal fade" role="dialog">
-      <div class="modal-dialog">
-        <!-- Modal content-->
-        <div class="modal-content">
-          <div class="modal-body">
-            <div class="row" id="result-base">
-              <div class="col">
-                <div class="card">
-                  <!-- <img class="card-img-top" /> -->
-                  <span class="btn btn-primary" id="download_video">
-                    <span class="result-download-video">With Watermark</span>
-                  </span>
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col" id="result-base">
-                <div class="card mt-3">
-                  <span class="btn btn-success" id="download_wless_video">
-                    <span class="result-download-wless-video"
-                      >without Watermark</span
-                    >
-                  </span>
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col" id="result-base">
-                <div class="card mt-3">
-                  <span class="btn btn-info" id="download_music">
-                    <span class="result-download-music">Only Music</span>
-                  </span>
-                </div>
-              </div>
-            </div>
-          </div>
 
-          <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">
-              Close
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
     <!-- 
     jQuery
     <script src="assets/js/jquery-2.1.0.min.js"></script> -->
@@ -341,7 +411,9 @@
       var oldwlVideoDownloadBtn = "Without Watermark";
       var oldMusicDownloadBtn = "Only music";
       $(document).ready(function () {
-        // $("#myModal").modal("show");
+        $("#result-success").hide();
+        $("#loader").hide();
+        $("#result-error").hide();
         $("#search-btn").on("click", function () {
           TikTok = null;
           // $("#result-area").fadeOut();
@@ -351,10 +423,22 @@
             return;
           }
           $("#search-btn").prop("disabled", true);
+          $("#loader").fadeIn();
+          $("#result-success").hide();
+          $("#result-error").hide();
           setTimeout(function () {
             TikTok = new JSTikTok(url);
             TikTok.get().then(function () {
-              showDatas();
+              if (
+                JSON.parse(TikTok.res).nowm == undefined &&
+                JSON.parse(TikTok.res).wm == undefined
+              ) {
+                console.log("If colled");
+                showerrorDatas();
+              } else {
+                console.log("else called");
+                showSuccessDatas();
+              }
             });
           }, 250);
         });
@@ -404,14 +488,15 @@
         };
       }
 
-      function showDatas() {
+      function showSuccessDatas() {
         $("#search-btn").prop("disabled", false);
-        $("#myModal").modal("show");
-        // $(".result-download-video").text(datas.video.title + " [MP4]");
-        // $(".result-download-wless-video").text(datas.video.title + " [MP4]");
-        // $(".result-download-music").text(datas.video.title + " [MP3]");
-        // oldVideoDownloadBtn = $(".result-download-video").text();
-        // oldMusicDownloadBtn = $(".result-download-music").text();
+        $("#loader").fadeOut();
+        $("#result-success").show();
+      }
+      function showerrorDatas() {
+        $("#search-btn").prop("disabled", false);
+        $("#loader").fadeOut();
+        $("#result-error").show();
       }
     </script>
   </body>

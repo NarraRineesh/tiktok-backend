@@ -3,10 +3,10 @@
   "version": "1.0.0",
   "description": "backend for no water mark url",
   "main": "index.js",
-  
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js"
+    "start": "node index.js",
+    "dev": "nodemon"
   },
   "keywords": [
     "tiktok"
@@ -25,6 +25,7 @@
     "fs": "0.0.1-security",
     "http": "0.0.1-security",
     "https": "^1.0.0",
+    "nodemon": "^2.0.14",
     "puppeteer": "^10.4.0",
     "qs": "^6.10.1",
     "socks-proxy-agent": "^6.1.0",
