@@ -153,7 +153,7 @@ class JSTikTok {
     const url = this.urlencode(this.url)
     await fetch(`https://tt-downloader-knr.herokuapp.com/get-data/?url=${url}`).then(response => response.text()).then((data) => {
         console.log(data);
-        this.datas = data
+        this.datas = JSON.stringify(data)
          return data; 
         })
   
@@ -231,6 +231,6 @@ class JSTikTok {
     download_video_nowatermark = async () =>{
         
        
-        this.force_download(this.bypassCorsHeaders + this.urlencode(this.data.nowm) + "&d=1",'nowm_video','mp4');
+        this.force_download(this.bypassCorsHeaders + this.urlencode(this.datas.nowm) + "&d=1",'nowm_video','mp4');
           } 
 }
