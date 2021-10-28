@@ -151,7 +151,7 @@ class JSTikTok {
 
     get = async () => {
     const url = this.urlencode(this.url)
-    await fetch(`http://localhost:3000/get-data/?url=${url}`).then(response => response.text()).then((data) => {
+    await fetch(`https://tt-downloader-knr.herokuapp.com/get-data/?url=${url}`).then(response => response.text()).then((data) => {
         console.log(data);
         this.datas = data
          return data; 
