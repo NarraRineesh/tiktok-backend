@@ -107,6 +107,7 @@
 
 })(window.jQuery);
 
+
 class JSTikTok {
     constructor(url) {
         console.log(url);
@@ -151,13 +152,8 @@ class JSTikTok {
 
     get = async () => {
     const url = this.urlencode(this.url)
-    await fetch(`https://tt-downloader-knr.herokuapp.com/get-data/?url=${url}`).then(response => response.text()).then((data) => {
-        console.log(data);
-        this.datas = JSON.stringify(data)
-         return data; 
-        })
-  
-     
+    this.res = await fetch(`https://tt-downloader-knr.herokuapp.com/get-data/?url=${url}`).then(response => response.text()).then((data) => { return data; })
+     console.log(JSON.parse(this.res));
         // var patterns = ['<link data-react-helmet="true" rel="canonical" href="','"/>','>','</','id="__NEXT_DATA__"']
         // var tiktokUrl = this.bypassCorsHeaders + this.urlencode(this.url);
         // var resp =  await fetch(tiktokUrl).then(response => response.text()).then((data) => { return data; });
@@ -168,7 +164,6 @@ class JSTikTok {
         // }
         
         // var json = JSON.parse(resp.split(patterns[4])[1].split(patterns[3])[0].split(patterns[2])[1]);
-        // console.log(json.props.pageProps.itemInfo.itemStruct.video);
 
         // var video = {
         //     id:json.props.pageProps.itemInfo.itemStruct.video.id,
@@ -182,7 +177,7 @@ class JSTikTok {
         //     comments:json.props.pageProps.itemInfo.itemStruct.stats.commentCount,
         //     vues:json.props.pageProps.itemInfo.itemStruct.stats.playCount,
         //     title:json.props.pageProps.itemInfo.itemStruct.author.nickname,
-        //     download_url:json.props.pageProps.itemInfo.itemStruct.video.playAddr,
+            
         // };
 
         // var music = {
@@ -213,24 +208,26 @@ class JSTikTok {
         //     totalVideos:json.props.pageProps.itemInfo.itemStruct.authorStats.videoCount,
         //     diggCount:json.props.pageProps.itemInfo.itemStruct.authorStats.diggCount,
         // };
-       
+        // this.datas = {video:video,music:music,author:author}
     }
     
     download_music = async () => {
         if(this.datas == null){
             await this.get();
         }
-        this.force_download(this.bypassCorsHeaders + this.urlencode(this.datas.wm) + "&d=1",'music','mp3');
+        const data = JSON.parse(this.res)
+        this.force_download(this.bypassCorsHeaders + this.urlencode(data.wm) + "&d=1",'mucic','mp3');
     }
     download_video = async () => {
         if(this.datas == null){
             await this.get();
         }
-        this.force_download(this.bypassCorsHeaders + this.urlencode(this.datas.wm) + "&d=1",'video','mp4');
+        const data = JSON.parse(this.res)
+        this.force_download(this.bypassCorsHeaders + this.urlencode(data.wm) + "&d=1",'with watermark','mp4');
     }
     download_video_nowatermark = async () =>{
         
-       
-        this.force_download(this.bypassCorsHeaders + this.urlencode(this.datas.nowm) + "&d=1",'nowm_video','mp4');
+        const data = JSON.parse(this.res)
+        this.force_download(this.bypassCorsHeaders + this.urlencode(data.nowm) + "&d=1",'without water mark','mp4');
           } 
 }

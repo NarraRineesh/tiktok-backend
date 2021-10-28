@@ -337,8 +337,9 @@
     <script src="assets/js/custom.js"></script>
     <script>
       var TikTok = null;
-      var oldVideoDownloadBtn = "";
-      var oldMusicDownloadBtn = "";
+      var oldVideoDownloadBtn = "With Watermark";
+      var oldwlVideoDownloadBtn = "Without Watermark";
+      var oldMusicDownloadBtn = "Only music";
       $(document).ready(function () {
         // $("#myModal").modal("show");
         $("#search-btn").on("click", function () {
@@ -393,7 +394,7 @@
             if (type == "video") {
               $(".result-download-video").text(oldVideoDownloadBtn);
             } else if (type == "wless_video") {
-              $(".result-download-wless-video").text(oldMusicDownloadBtn);
+              $(".result-download-wless-video").text(oldwlVideoDownloadBtn);
             } else if (type == "music") {
               $(".result-download-music").text(oldMusicDownloadBtn);
             }
@@ -405,13 +406,12 @@
 
       function showDatas() {
         $("#search-btn").prop("disabled", false);
-        $("#result-area").fadeIn();
         $("#myModal").modal("show");
-        $(".result-download-video").text(" [MP4]");
-        $(".result-download-wless-video").text(" [MP4]");
-        $(".result-download-music").text(" [MP3]");
-        oldVideoDownloadBtn = $(".result-download-video").text();
-        oldMusicDownloadBtn = $(".result-download-music").text();
+        // $(".result-download-video").text(datas.video.title + " [MP4]");
+        // $(".result-download-wless-video").text(datas.video.title + " [MP4]");
+        // $(".result-download-music").text(datas.video.title + " [MP3]");
+        // oldVideoDownloadBtn = $(".result-download-video").text();
+        // oldMusicDownloadBtn = $(".result-download-music").text();
       }
     </script>
   </body>
