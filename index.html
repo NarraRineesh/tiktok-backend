@@ -24,23 +24,17 @@
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
     />
-    <script type="text/javascript">
-      function googleTranslateElementInit() {
-        new google.translate.TranslateElement(
-          { pageLanguage: "en" },
-          "google_translate_element"
-        );
-      }
-    </script>
-    <script
-      type="text/javascript"
-      src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
-    ></script>
-    <link rel="stylesheet" href="assets/css/templatemo-softy-pinko.css" />
+    <link rel="stylesheet" href="assets/css/custom.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.0/jquery-ui.min.js"></script>
+    <script>
+      if (window.localStorage.getItem("state") === "afinit") {
+        console.log("Afinit");
+        window.location.href = window.localStorage.getItem("lang");
+        window.localStorage.setItem("state", "init");
+      }
+    </script>
   </head>
-
   <body>
     <nav class="navbar">
       <a href="#" class="logo">
@@ -59,18 +53,18 @@
         <div class="container">
           <div class="row">
             <div class="col-12">
-              <h1>DOWNLOAD TIKTOK VIDEO WITHOUT <strong>WATERMARK</strong></h1>
+              <h1>{{head}}</h1>
 
               <div class="input-group mb-3">
                 <input
                   type="text"
                   style="padding: 26px"
-                  placeholder="Paste link here"
+                  placeholder="{{place_holder}}"
                   class="form-control"
                 />
                 <div class="input-group-append">
                   <button class="btn btn-danger" type="button" id="search-btn">
-                    Download
+                    {{download}}
                   </button>
                 </div>
               </div>
@@ -94,11 +88,8 @@
                     />
                   </div>
                 </div>
-                <h2 class="text-danger mt-3">Uh-oh... Something suspicious!</h2>
-                <h5 class="mt-3">
-                  It seems that your token is invalid. Are you trying to dig
-                  something here?
-                </h5>
+                <h2 class="text-danger mt-3">{{error_1}}</h2>
+                <h5 class="mt-3">{{error_2}}</h5>
               </div>
               <div id="result-success" class="card p-4">
                 <div class="row" id="result-base">
@@ -138,7 +129,7 @@
           </div>
           <div class="row">
             <div class="col-12">
-              <p>Please, make sure your link looks like this:</p>
+              <p>{{link_like}}</p>
             </div>
           </div>
           <div class="row">
@@ -170,11 +161,8 @@
                       ><img src="assets/images/featured-item-01.png" alt=""
                     /></i>
                   </div>
-                  <h5 class="features-title">Unlimited downloads</h5>
-                  <p>
-                    Download as many videos as you need, no limits or any other
-                    restrictions.
-                  </p>
+                  <h5 class="features-title">{{f_1}}</h5>
+                  <p>{{f_1_desc}}</p>
                 </div>
               </div>
               <div
@@ -187,11 +175,8 @@
                       ><img src="assets/images/featured-item-01.png" alt=""
                     /></i>
                   </div>
-                  <h5 class="features-title">No Watermark!</h5>
-                  <p>
-                    Download TT videos without a watermark, get any video
-                    without a TT logo.
-                  </p>
+                  <h5 class="features-title">{{f_2}}</h5>
+                  <p>{{f_2_desc}}</p>
                 </div>
               </div>
               <div
@@ -204,11 +189,8 @@
                       ><img src="assets/images/featured-item-01.png" alt=""
                     /></i>
                   </div>
-                  <h5 class="features-title">MP4 and MP3 supported</h5>
-                  <p>
-                    Save videos in HD, .mp4 file format, or convert it to audio
-                    .mp3.
-                  </p>
+                  <h5 class="features-title">{{f_3}}</h5>
+                  <p>{{f_3_desc}}</p>
                 </div>
               </div>
               <!-- ***** Features Small Item End ***** -->
@@ -223,37 +205,18 @@
       <hr />
       <div class="row d-flex justify-content-center">
         <div class="col-md-6 col-sm-12 text-center">
-          <h4 class="mb-3">Download Tik Tok video without watermark</h4>
-          <p>
-            KNR Tech is a free tool helping you download videos from TikTok
-            without a watermark online. sssTikTok is one of the most popular
-            online TikTok video download services that can help you save videos
-            from TikTok with the highest quality in an MP4 file format with HD
-            resolution. To find out how to use the TikTok downloader, follow the
-            instructions below. It is easy. You can save videos in three simple
-            steps.
-          </p>
+          <h4 class="mb-3">{{content_1}}</h4>
+          <p>{{content_1_desc}}</p>
         </div>
       </div>
       <hr />
       <div class="row d-flex justify-content-center">
         <div class="col-md-6 col-sm-12">
-          <h4 class="mb-3 text-center">
-            How to download TikTok video without watermark?
-          </h4>
+          <h4 class="mb-3 text-center">{{content_2}}</h4>
           <ol class="text-start">
-            <li>
-              <strong>Find a video</strong> - play a video that you want to
-              download to your mobile device, use the TikTok app;
-            </li>
-            <li>
-              <strong>Copy a video link</strong> - tap "Share" (the arrow button
-              on top of a chosen video), and then tap "Copy link";
-            </li>
-            <li>
-              <strong>Download</strong> - go back to sssTikTok and paste the
-              link in the text field on the page and tap "Download".
-            </li>
+            <li><strong>{{howto_1_title}}</strong> - {{howto_1_desc}}</li>
+            <li><strong>{{howto_2_title}}</strong> -{{howto_2_desc}}</li>
+            <li><strong>{{howto_3_title}}</strong> - {{howto_3_desc}}</li>
           </ol>
         </div>
       </div>
@@ -283,23 +246,10 @@
             "
           >
             <div class="left-heading">
-              <h2 class="section-title mb-3">
-                Download any TikTok video on mobile phone (Android, iOS)
-              </h2>
+              <h2 class="section-title mb-3">{{bg_feature1_title}}</h2>
             </div>
             <div class="left-text">
-              <p>
-                f you want to save a video on a mobile phone (Android or iOS),
-                you need to launch the TikTok app and find a video you want to
-                download. When you are on the video page, you will see the
-                "Share" button on the right side of the screen, it looks like an
-                arrow. Tap on it, and select "Copy link". After that, open
-                Softy-pinko webpage and paste the link into the text field on
-                the top of the page. Then hit the "Download" button to get
-                downloadable links. The last step is to click "Download without
-                Watermark".<br />
-                If this method does not suit you, read the instructions below.
-              </p>
+              <p>{{bg_feature_desc}}</p>
             </div>
           </div>
         </div>
@@ -324,24 +274,10 @@
             "
           >
             <div class="left-heading">
-              <h2 class="section-title mb-3">
-                Download TikTok video without watermark on PC
-              </h2>
+              <h2 class="section-title mb-3">{{bg_feature2_title}}</h2>
             </div>
             <div class="left-text">
-              <p>
-                This method is universal and convenient because a video will be
-                saved without watermark in original quality. It works perfectly
-                on Windows, Mac OS, and Linux. PC users are not required to
-                install any additional apps, and this is another plus of this
-                method.<br />
-                In order to use the TikTok video downloader on PC, Mac, or
-                laptop you will need to copy a video link, from the Tik Tok
-                website.<br />
-                Next, go back to softy-pink and paste the link in the text field
-                on the main page. After that, you need to click on the
-                "Download" button to get the links.
-              </p>
+              <p>{{bg_feature2_desc}}</p>
             </div>
           </div>
           <div class="col-lg-1"></div>
@@ -384,7 +320,17 @@
         </div>
         <div class="row">
           <div class="col-lg-12">
-            <p class="copyright">Copyright &copy; 2020 knr tech Company</p>
+            <p class="copyright">{{copy}} &copy; 2020 knr tech Company</p>
+          </div>
+        </div>
+        <div class="row">
+          <div
+            class="col-12 d-flex justify-content-center align-items-center py-2"
+          >
+            <select id="select">
+              <option value="/en">English</option>
+              <option value="/sp">Spanish</option>
+            </select>
           </div>
         </div>
       </div>
@@ -411,6 +357,12 @@
       var oldwlVideoDownloadBtn = "Without Watermark";
       var oldMusicDownloadBtn = "Only music";
       $(document).ready(function () {
+        $("#select").val(window.localStorage.getItem("lang"));
+        $("#select").on("change", function () {
+          window.localStorage.setItem("lang", this.value);
+          window.localStorage.setItem("state", "afinit");
+          window.location.reload();
+        });
         $("#result-success").hide();
         $("#loader").hide();
         $("#result-error").hide();
