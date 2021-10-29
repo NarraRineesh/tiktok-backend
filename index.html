@@ -32,6 +32,13 @@
         );
       }
     </script>
+    <script>
+      if (window.localStorage.getItem("lang")) {
+        console.log("lang exists");
+      } else {
+        console.log("no lang exists");
+      }
+    </script>
     <script
       type="text/javascript"
       src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
@@ -414,6 +421,7 @@
         $("#result-success").hide();
         $("#loader").hide();
         $("#result-error").hide();
+
         $("#search-btn").on("click", function () {
           TikTok = null;
           // $("#result-area").fadeOut();

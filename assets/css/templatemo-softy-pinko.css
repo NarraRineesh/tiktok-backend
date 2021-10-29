@@ -102,6 +102,7 @@ figcaption {
 }
 body {
   top: 0px !important;
+  overflow-x: hidden;
 }
 .goog-logo-link {
   display: none !important;
@@ -708,7 +709,11 @@ footer .copyright {
     margin-bottom: 30px;
   }
 }
-
+#result-success,
+#loader,
+#result-error {
+  display: none;
+}
 /* 
 ---------------------------------------------
 preloader
