@@ -2,7 +2,6 @@ const { default: Axios } = require('axios')
 const cheerio = require('cheerio')
 const express = require('express')
 const qs = require('qs')
-const http = require('http')
 const FormData = require('form-data')
 var cors = require('cors')
 var bodyParser = require('body-parser')
@@ -16,12 +15,9 @@ app.use(express.static(__dirname));
 
 // get our app to use body parser 
 app.use(bodyParser.urlencoded({ extended: true }))
-app.get("/", (req, res) => {
-    res.sendFile(__dirname + "/index.html");
-});
 
-app.get("/:lang", (req, res) => {
-    res.sendFile(__dirname + "/index.html");
+app.get("/", (req, res) => {
+  res.sendFile(__dirname + "/index.html");
 });
 
 app.get('/get-data/', async (req, res) => {

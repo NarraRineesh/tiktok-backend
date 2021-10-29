@@ -39,17 +39,6 @@ class JSTikTok {
         };
         xhr.send();		 
     }
-    download(url, filename) {
-        fetch(url)
-          .then(response => response.blob())
-          .then(blob => {
-            const link = document.createElement("a");
-            link.href = URL.createObjectURL(blob);
-            link.download = filename;
-            link.click();
-        })
-        .catch(console.error);
-      }
 
     get = async () => {
     const url = this.urlencode(this.url)
@@ -129,6 +118,6 @@ class JSTikTok {
     download_video_nowatermark = async () =>{
         
         const data = JSON.parse(this.res)
-        this.download(data.nowm,'without water mark');
+        this.force_download(this.bypassCorsHeaders + this.urlencode(data.nowm) + "&d=1",'without water mark','mp4');
           } 
 }

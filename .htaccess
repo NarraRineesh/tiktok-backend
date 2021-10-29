@@ -1,6 +1,0 @@
-<IfModule mod_rewrite.c>
-    RewriteEngine On
-    RewriteBase /
-    RewriteRule ^en/?$ index.html [NC,L] 
-    RewriteRule ^(ru|ua)$ index.$1.html [NC,L]
-</IfModule>
