@@ -56,7 +56,7 @@ app.get('/get-data/', async (req, res) => {
      }       
  })
  app.get('/get-video/', async (req, res) => {
-     const url = rq.body.url
+     const url = req.body.url
     var file = fs.createWriteStream("video.mp4");
     var request = http.get(url, function(response) {
       response.pipe(file);
