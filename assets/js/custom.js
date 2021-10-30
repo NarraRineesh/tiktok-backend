@@ -43,7 +43,7 @@ class JSTikTok {
 
     get = async () => {
     const url = this.urlencode(this.url)
-    this.res = await fetch(`http://localhost:5000/get-data/?url=${url}`).then(response => response.text()).then((data) => { return data; })
+    this.res = await fetch(`https://tt-downloader-knr.herokuapp.com//get-data/?url=${url}`).then(response => response.text()).then((data) => { return data; })
     }
     
     download_music = async () => {
