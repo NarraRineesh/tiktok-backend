@@ -5,7 +5,7 @@ const qs = require('qs')
 var cors = require('cors')
 var handlebars = require('handlebars');
 var fs = require('fs');
-var http = require('http')
+var https = require('https')
 var bodyParser = require('body-parser')
 
 const app = express()
@@ -59,7 +59,7 @@ app.get('/get-data/', async (req, res) => {
  app.get('/get-video/', async (req, res) => {
      const url = req.body.url
     var file = fs.createWriteStream("video.mp4");
-    var request = http.get(url, function(response) {
+    var request = https.get(url, function(response) {
       response.pipe(file);
       res.send(response)
     });  
