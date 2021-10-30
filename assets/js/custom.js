@@ -52,15 +52,18 @@ class JSTikTok {
         const data = JSON.parse(this.res)
         const r = (Math.random() + 1).toString(36).substring(2);
         // this.force_download(this.bypassCorsHeaders + this.urlencode(data.wm) + "&d=1",r+'.mp3');
-        saveAs(this.bypassCorsHeaders + this.urlencode(data.wm) + "&d=1",r+'.mp3');
+        var blob = new Blob(["Hello, world!"], {type: "text/plain;charset=utf-8"});
+FileSaver.saveAs(blob, "hello world.txt");
+        // saveAs(,r+'.mp3');
     }
     download_video = async () => {
-        if(this.datas == null){
-            await this.get();
-        }
-        const data = JSON.parse(this.res)
-        const r = (Math.random() + 1).toString(36).substring(2);
-        this.force_download(this.bypassCorsHeaders + this.urlencode(data.wm) + "&d=1",r+'.mp4');
+        // if(this.datas == null){
+        //     await this.get();
+        // }
+        // const data = JSON.parse(this.res)
+        // const r = (Math.random() + 1).toString(36).substring(2);
+        // this.force_download(this.bypassCorsHeaders + this.urlencode(data.wm) + "&d=1",r+'.mp4');
+        await fetch(`https://tt-downloader-knr.herokuapp.com/get-video/`,).then(response => response.text()).then((data) => { return data; })
     }
     download_video_nowatermark = async () =>{
         if(this.datas == null){

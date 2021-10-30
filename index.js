@@ -11,12 +11,22 @@ const app = express()
 app.use(cors())
 app.use(bodyParser.json())
 // server css as static
-app.use(express.static(__dirname));
+
 
 // get our app to use body parser 
 app.use(bodyParser.urlencoded({ extended: true }))
-
+app.get("/", (req, res) => {
+    app.use(express.static(__dirname));
+    const data = require('./en.js')
+    readHTMLFile(__dirname + '/index.html', function(err, html) {
+        var template = handlebars.compile(html);
+        var replacements = data
+        var htmlToSend = template(replacements);
+        res.send(htmlToSend);
+    })
+});
 app.get("/en", (req, res) => {
+    
     const data = require('./en.js')
     readHTMLFile(__dirname + '/index.html', function(err, html) {
         var template = handlebars.compile(html);
@@ -45,6 +55,14 @@ app.get('/get-data/', async (req, res) => {
           res.status(404).send(error);
      }       
  })
+ app.get('/get-video/', async (req, res) => {
+     const url = rq.body.url
+    var file = fs.createWriteStream("video.mp4");
+    var request = http.get(url, function(response) {
+      response.pipe(file);
+      res.send(response)
+    });  
+})
  var readHTMLFile = function(path, callback) {
     fs.readFile(path, {encoding: 'utf-8'}, function (err, html) {
         if (err) {
@@ -60,6 +78,10 @@ app.get('/get-data/', async (req, res) => {
  app.listen(process.env.PORT || 5000, () => {
     console.log(`Application started and Listening on port ${process.env.PORT || 5000}`);
   });
+
+function downloadVideo(url){
+    
+}
   
 
 function tiktokdownload(url) {
