@@ -19,38 +19,38 @@ class JSTikTok {
     }
     force_download(url,title,format){
         var xhr = new XMLHttpRequest();
-        xhr.open('get', url, true);
+        xhr.open('GET', url, true);
         xhr.responseType = 'blob';
         xhr.onload = function(e) {
-            var blob = xhr.response;
-            const fileName = title+'.'+format;
-            // if (window.navigator && window.navigator.msSaveOrOpenBlob) { 
-            //     window.navigator.msSaveOrOpenBlob(blob, fileName);
-            // } else {
-                var url = window.URL.createObjectURL(blob);
-                const a = document.createElement('a');
-                a.style.display = 'none';
-                a.href = url;
-                a.download = fileName;
-                document.body.appendChild(a);
-                a.click();
-                window.URL.revokeObjectURL(url);
+            if (this.status == 200) {
+                var blob = this.response;
+                document.getElementById("myImage").src = window.URL.createObjectURL(blob);
+              }
+                // var blob = xhr.response;
+                // const fileName = title+'.'+format;
+                // console.log(blob);
+                // var url = window.URL.createObjectURL(blob);
+                // const a = document.createElement('a');
+                // a.style.display = 'none';
+                // a.href = url;
+                // console.log(url);
+                // a.download = fileName;
+                // document.body.appendChild(a);
+                // console.log(a);
+                // a.click();
+                // link.remove();
+                // window.URL.revokeObjectURL(url);
             // };
         };
         xhr.send();		 
     }
-    downloadURI(uri, name) 
-{
-    var link = document.createElement("a");
-    // If you don't know the name or want to use
-    // the webserver default set name = ''
-    link.setAttribute('download', name);
-    link.href = uri;
-    document.body.appendChild(link);
-    link.click();
-    link.remove();
-}
-
+    blobToBase64(blob) {
+        return new Promise((resolve, _) => {
+          const reader = new FileReader();
+          reader.onloadend = () => resolve(reader.result);
+          reader.readAsDataURL(blob);
+        });
+      }
     get = async () => {
     const url = this.urlencode(this.url)
     this.res = await fetch(`https://tt-downloader-knr.herokuapp.com/get-data/?url=${url}`).then(response => response.text()).then((data) => { return data; })
@@ -117,7 +117,7 @@ class JSTikTok {
             await this.get();
         }
         const data = JSON.parse(this.res)
-        this.force_download(this.bypassCorsHeaders + this.urlencode(data.wm) + "&d=1",'mucic','mp3');
+        this.downloadURI(this.bypassCorsHeaders + data.wm, 'music');
     }
     download_video = async () => {
         if(this.datas == null){
