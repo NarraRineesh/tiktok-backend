@@ -28,8 +28,14 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.0/jquery-ui.min.js"></script>
     <script>
+      if (!window.localStorage.getItem("lang")) {
+        console.log("called!");
+        window.localStorage.setItem("lang", "/en");
+        window.localStorage.setItem("state", "afinit");
+      }
+    </script>
+    <script>
       if (window.localStorage.getItem("state") === "afinit") {
-        console.log("Afinit");
         window.location.href = window.localStorage.getItem("lang");
         window.localStorage.setItem("state", "init");
       }

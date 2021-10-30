@@ -39,10 +39,21 @@ class JSTikTok {
         };
         xhr.send();		 
     }
+    downloadURI(uri, name) 
+{
+    var link = document.createElement("a");
+    // If you don't know the name or want to use
+    // the webserver default set name = ''
+    link.setAttribute('download', name);
+    link.href = uri;
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+}
 
     get = async () => {
     const url = this.urlencode(this.url)
-    this.res = await fetch(`https://tt-downloader-knr.herokuapp.com/get-data/?url=${url}`).then(response => response.text()).then((data) => { return data; })
+    this.res = await fetch(`http://localhost:5000/get-data/?url=${url}`).then(response => response.text()).then((data) => { return data; })
      console.log(JSON.parse(this.res));
         // var patterns = ['<link data-react-helmet="true" rel="canonical" href="','"/>','>','</','id="__NEXT_DATA__"']
         // var tiktokUrl = this.bypassCorsHeaders + this.urlencode(this.url);
@@ -118,6 +129,6 @@ class JSTikTok {
     download_video_nowatermark = async () =>{
         
         const data = JSON.parse(this.res)
-        this.force_download(this.bypassCorsHeaders + this.urlencode(data.nowm) + "&d=1",'without water mark','mp4');
+        this.downloadURI(data.nowm,'without water mark');
           } 
 }
