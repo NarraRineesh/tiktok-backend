@@ -51,7 +51,8 @@ class JSTikTok {
         }
         const data = JSON.parse(this.res)
         const r = (Math.random() + 1).toString(36).substring(2);
-        this.force_download(this.bypassCorsHeaders + this.urlencode(data.wm) + "&d=1",r+'.mp3');
+        // this.force_download(this.bypassCorsHeaders + this.urlencode(data.wm) + "&d=1",r+'.mp3');
+        saveAs(this.bypassCorsHeaders + this.urlencode(data.wm) + "&d=1",r+'.mp3');
     }
     download_video = async () => {
         if(this.datas == null){
