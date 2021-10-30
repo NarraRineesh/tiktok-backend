@@ -19,41 +19,31 @@ class JSTikTok {
     }
     force_download(url,title,format){
         var xhr = new XMLHttpRequest();
-        xhr.open('GET', url, true);
+        xhr.open('get', url, true);
         xhr.responseType = 'blob';
         xhr.onload = function(e) {
-            if (this.status == 200) {
-                var blob = this.response;
-                document.getElementById("myImage").src = window.URL.createObjectURL(blob);
-              }
-                // var blob = xhr.response;
-                // const fileName = title+'.'+format;
-                // console.log(blob);
-                // var url = window.URL.createObjectURL(blob);
-                // const a = document.createElement('a');
-                // a.style.display = 'none';
-                // a.href = url;
-                // console.log(url);
-                // a.download = fileName;
-                // document.body.appendChild(a);
-                // console.log(a);
-                // a.click();
-                // link.remove();
-                // window.URL.revokeObjectURL(url);
-            // };
+            var blob = xhr.response;
+            const fileName = title+'.'+format;
+            if (window.navigator && window.navigator.msSaveOrOpenBlob) { 
+                window.navigator.msSaveOrOpenBlob(blob, fileName);
+            } else {
+                var url = window.URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.style.display = 'none';
+                a.href = url;
+                a.download = fileName;
+                document.body.appendChild(a);
+                a.click();
+                window.URL.revokeObjectURL(url);
+            };
         };
         xhr.send();		 
     }
-    blobToBase64(blob) {
-        return new Promise((resolve, _) => {
-          const reader = new FileReader();
-          reader.onloadend = () => resolve(reader.result);
-          reader.readAsDataURL(blob);
-        });
-      }
+   
+
     get = async () => {
     const url = this.urlencode(this.url)
-    this.res = await fetch(`https://tt-downloader-knr.herokuapp.com/get-data/?url=${url}`).then(response => response.text()).then((data) => { return data; })
+    this.res = await fetch(`http://tt-downloader-knr.herokuapp.com/get-data/?url=${url}`).then(response => response.text()).then((data) => { return data; })
      console.log(JSON.parse(this.res));
         // var patterns = ['<link data-react-helmet="true" rel="canonical" href="','"/>','>','</','id="__NEXT_DATA__"']
         // var tiktokUrl = this.bypassCorsHeaders + this.urlencode(this.url);
@@ -117,7 +107,7 @@ class JSTikTok {
             await this.get();
         }
         const data = JSON.parse(this.res)
-        this.downloadURI(this.bypassCorsHeaders + data.wm, 'music');
+        this.force_download(this.bypassCorsHeaders + this.urlencode(data.wm) + "&d=1",'mucic','mp3');
     }
     download_video = async () => {
         if(this.datas == null){
