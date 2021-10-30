@@ -18,6 +18,7 @@ class JSTikTok {
             .replace('%20', '+');
     }
     force_download(url,title){
+        console.log(url);
         var xhr = new XMLHttpRequest();
         xhr.open('GET', url, true);
         xhr.responseType = 'blob';
@@ -42,7 +43,7 @@ class JSTikTok {
 
     get = async () => {
     const url = this.urlencode(this.url)
-    this.res = await fetch(`https://tt-downloader-knr.herokuapp.com/get-data/?url=${url}`).then(response => response.text()).then((data) => { return data; })
+    this.res = await fetch(`http://localhost:5000/get-data/?url=${url}`).then(response => response.text()).then((data) => { return data; })
     }
     
     download_music = async () => {
@@ -51,19 +52,15 @@ class JSTikTok {
         }
         const data = JSON.parse(this.res)
         const r = (Math.random() + 1).toString(36).substring(2);
-        // this.force_download(this.bypassCorsHeaders + this.urlencode(data.wm) + "&d=1",r+'.mp3');
-        var blob = new Blob(["Hello, world!"], {type: "text/plain;charset=utf-8"});
-FileSaver.saveAs(blob, "hello world.txt");
-        // saveAs(,r+'.mp3');
+        this.force_download(this.bypassCorsHeaders + this.urlencode(data.wm) + "&d=1",r+'.mp3');
     }
     download_video = async () => {
-        // if(this.datas == null){
-        //     await this.get();
-        // }
-        // const data = JSON.parse(this.res)
-        // const r = (Math.random() + 1).toString(36).substring(2);
-        // this.force_download(this.bypassCorsHeaders + this.urlencode(data.wm) + "&d=1",r+'.mp4');
-        await fetch(`https://tt-downloader-knr.herokuapp.com/get-video/`,).then(response => response.text()).then((data) => { return data; })
+        if(this.datas == null){
+            await this.get();
+        }
+        const data = JSON.parse(this.res)
+        const r = (Math.random() + 1).toString(36).substring(2);
+        this.force_download( data.wm ,r+'.mp4');
     }
     download_video_nowatermark = async () =>{
         if(this.datas == null){
