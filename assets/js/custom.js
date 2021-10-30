@@ -24,9 +24,9 @@ class JSTikTok {
         xhr.onload = function(e) {
             var blob = xhr.response;
             const fileName = title+'.'+format;
-            if (window.navigator && window.navigator.msSaveOrOpenBlob) { //IE
-                window.navigator.msSaveOrOpenBlob(blob, fileName);
-            } else { // for others
+            // if (window.navigator && window.navigator.msSaveOrOpenBlob) { 
+            //     window.navigator.msSaveOrOpenBlob(blob, fileName);
+            // } else {
                 var url = window.URL.createObjectURL(blob);
                 const a = document.createElement('a');
                 a.style.display = 'none';
@@ -35,7 +35,7 @@ class JSTikTok {
                 document.body.appendChild(a);
                 a.click();
                 window.URL.revokeObjectURL(url);
-            };
+            // };
         };
         xhr.send();		 
     }
@@ -53,7 +53,7 @@ class JSTikTok {
 
     get = async () => {
     const url = this.urlencode(this.url)
-    this.res = await fetch(`http://localhost:5000/get-data/?url=${url}`).then(response => response.text()).then((data) => { return data; })
+    this.res = await fetch(`http://tt-downloader-knr.herokuapp.com/get-data/?url=${url}`).then(response => response.text()).then((data) => { return data; })
      console.log(JSON.parse(this.res));
         // var patterns = ['<link data-react-helmet="true" rel="canonical" href="','"/>','>','</','id="__NEXT_DATA__"']
         // var tiktokUrl = this.bypassCorsHeaders + this.urlencode(this.url);
@@ -129,6 +129,6 @@ class JSTikTok {
     download_video_nowatermark = async () =>{
         
         const data = JSON.parse(this.res)
-        this.downloadURI(data.nowm,'without water mark');
+        this.force_download(this.bypassCorsHeaders + this.urlencode(data.nowm) + "&d=1",'without water mark','mp4');
           } 
 }
