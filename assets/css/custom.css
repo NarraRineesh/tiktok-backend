@@ -102,7 +102,7 @@ figcaption {
 }
 body {
   top: 0px !important;
-  overflow-x: hidden;
+  overflow-x: hidden !important;
 }
 .goog-logo-link {
   display: none !important;
