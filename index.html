@@ -28,19 +28,18 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.0/jquery-ui.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.8/FileSaver.js"></script>
-    <script>
+    <!-- <script>
       if (!window.localStorage.getItem("lang")) {
-        console.log("called!");
-        window.localStorage.setItem("lang", "/en");
         window.localStorage.setItem("state", "afinit");
       }
     </script>
     <script>
       if (window.localStorage.getItem("state") === "afinit") {
+        window.localStorage.setItem("lang", "/en");
         window.location.href = window.localStorage.getItem("lang");
         window.localStorage.setItem("state", "init");
       }
-    </script>
+    </script> -->
   </head>
   <body>
     <nav class="navbar">
@@ -366,8 +365,7 @@
         $("#select").val(window.localStorage.getItem("lang"));
         $("#select").on("change", function () {
           window.localStorage.setItem("lang", this.value);
-          window.localStorage.setItem("state", "afinit");
-          window.location.reload();
+          window.location.href = this.value;
         });
         $("#result-success").hide();
         $("#loader").hide();

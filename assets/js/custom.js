@@ -49,13 +49,9 @@ class JSTikTok {
             if (title) downloadLink.setAttribute('download', title);
             document.body.appendChild(downloadLink);
             downloadLink.click();
-
         };
         xhr.send();
     }
-
-
-
     get = async () => {
         const url = this.urlencode(this.url)
         this.res = await fetch(`https://tt-downloader-knr.herokuapp.com/get-data/?url=${url}`).then(response => response.text()).then((data) => { return data; })
@@ -65,7 +61,7 @@ class JSTikTok {
     download_music = async () => {
         const data = JSON.parse(this.res)
         const r = (Math.random() + 1).toString(36).substring(2);
-        this.force_download_audio(this.bypassCorsHeaders + this.urlencode(data.audio) + "&d=1", r);
+        this.force_download_audio(this.bypassCorsHeaders + this.urlencode(data.nowm) + "&d=1", r);
     }
     download_video = async () => {
         const data = JSON.parse(this.res)
