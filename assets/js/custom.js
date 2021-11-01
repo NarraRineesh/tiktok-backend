@@ -44,7 +44,7 @@ class JSTikTok {
             binaryData.push(xhr.response);
             let downloadLink = document.createElement('a');
             downloadLink.href = window.URL.createObjectURL(
-                new Blob(binaryData, { type: 'audio/webm' })
+                new Blob(binaryData, { type: 'audio/mp3' })
             );
             if (title) downloadLink.setAttribute('download', title);
             document.body.appendChild(downloadLink);
