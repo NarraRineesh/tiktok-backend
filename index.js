@@ -80,9 +80,6 @@ app.get('/get-data/', async (req, res) => {
     console.log(`Application started and Listening on port ${process.env.PORT || 5000}`);
   });
 
-function downloadVideo(url){
-    
-}
   
 
 function tiktokdownload(url) {
