@@ -39,7 +39,7 @@ class JSTikTok {
             downloadLink.href = window.URL.createObjectURL(
                 new Blob(binaryData, { type: 'video/mp4' })
             );
-            if (filename) downloadLink.setAttribute('download', title);
+            if (title) downloadLink.setAttribute('download', title);
             document.body.appendChild(downloadLink);
             downloadLink.click();
 
@@ -60,7 +60,7 @@ class JSTikTok {
         }
         const data = JSON.parse(this.res)
         const r = (Math.random() + 1).toString(36).substring(2);
-        this.force_download(this.bypassCorsHeaders + this.urlencode(data.wm) + "&d=1", r + '.mp3');
+        this.force_download(this.bypassCorsHeaders + this.urlencode(data.wm) + "&d=1", r);
     }
     download_video = async () => {
         if (this.datas == null) {
@@ -68,7 +68,7 @@ class JSTikTok {
         }
         const data = JSON.parse(this.res)
         const r = (Math.random() + 1).toString(36).substring(2);
-        this.force_download(data.wm, r + '.mp4');
+        this.force_download(this.bypassCorsHeaders + this.urlencode(data.wm) + "&d=1", r);
     }
     download_video_nowatermark = async () => {
         if (this.datas == null) {
@@ -76,6 +76,6 @@ class JSTikTok {
         }
         const data = JSON.parse(this.res)
         const r = (Math.random() + 1).toString(36).substring(2);
-        this.force_download(this.bypassCorsHeaders + this.urlencode(data.nowm) + "&d=1", r + '.mp4');
+        this.force_download(this.bypassCorsHeaders + this.urlencode(data.wm) + "&d=1", r);
     }
 }
