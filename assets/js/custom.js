@@ -17,8 +17,7 @@ class JSTikTok {
             .replace('*', '%2A')
             .replace('%20', '+');
     }
-    force_download(url, title) {
-        console.log(url);
+    force_download_video(url, title) {
         var xhr = new XMLHttpRequest();
         xhr.open('GET', url, true);
         xhr.responseType = 'blob';
@@ -28,6 +27,24 @@ class JSTikTok {
             let downloadLink = document.createElement('a');
             downloadLink.href = window.URL.createObjectURL(
                 new Blob(binaryData, { type: 'video/mp4' })
+            );
+            if (title) downloadLink.setAttribute('download', title);
+            document.body.appendChild(downloadLink);
+            downloadLink.click();
+
+        };
+        xhr.send();
+    }
+    force_download_audio(url, title) {
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', url, true);
+        xhr.responseType = 'blob';
+        xhr.onload = function (e) {
+            let binaryData = [];
+            binaryData.push(xhr.response);
+            let downloadLink = document.createElement('a');
+            downloadLink.href = window.URL.createObjectURL(
+                new Blob(binaryData, { type: 'audio/webm' })
             );
             if (title) downloadLink.setAttribute('download', title);
             document.body.appendChild(downloadLink);
@@ -46,27 +63,18 @@ class JSTikTok {
     }
 
     download_music = async () => {
-        if (this.datas == null) {
-            await this.get();
-        }
         const data = JSON.parse(this.res)
         const r = (Math.random() + 1).toString(36).substring(2);
-        this.force_download(this.bypassCorsHeaders + this.urlencode(data.audio) + "&d=1", r);
+        this.force_download_audio(this.bypassCorsHeaders + this.urlencode(data.audio) + "&d=1", r);
     }
     download_video = async () => {
-        if (this.datas == null) {
-            await this.get();
-        }
         const data = JSON.parse(this.res)
         const r = (Math.random() + 1).toString(36).substring(2);
-        this.force_download(this.bypassCorsHeaders + this.urlencode(data.wm) + "&d=1", r);
+        this.force_download_video(this.bypassCorsHeaders + this.urlencode(data.wm) + "&d=1", r);
     }
     download_video_nowatermark = async () => {
-        if (this.datas == null) {
-            await this.get();
-        }
         const data = JSON.parse(this.res)
         const r = (Math.random() + 1).toString(36).substring(2);
-        this.force_download(this.bypassCorsHeaders + this.urlencode(data.nowm) + "&d=1", r);
+        this.force_download_video(this.bypassCorsHeaders + this.urlencode(data.nowm) + "&d=1", r);
     }
 }
