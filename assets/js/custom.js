@@ -2,7 +2,7 @@ class JSTikTok {
     constructor(url) {
         console.log(url);
         this.url = url;
-        this.datas = null;
+        this.datas = [];
         this.res = null
     }
     bypassCorsHeaders = "https://cors-tiktok.herokuapp.com/?u=";
@@ -23,16 +23,6 @@ class JSTikTok {
         xhr.open('GET', url, true);
         xhr.responseType = 'blob';
         xhr.onload = function (e) {
-            // var blob = xhr.response;
-            // saveAs(blob, title);
-            // var url = window.URL.createObjectURL(blob);
-            // const a = document.createElement('a');
-            // a.style.display = 'none';
-            // a.href = url;
-            // a.download = fileName;
-            // document.body.appendChild(a);
-            // a.click();
-            // window.URL.revokeObjectURL(url);
             let binaryData = [];
             binaryData.push(xhr.response);
             let downloadLink = document.createElement('a');
@@ -52,6 +42,7 @@ class JSTikTok {
     get = async () => {
         const url = this.urlencode(this.url)
         this.res = await fetch(`https://tt-downloader-knr.herokuapp.com/get-data/?url=${url}`).then(response => response.text()).then((data) => { return data; })
+
     }
 
     download_music = async () => {
@@ -60,7 +51,7 @@ class JSTikTok {
         }
         const data = JSON.parse(this.res)
         const r = (Math.random() + 1).toString(36).substring(2);
-        this.force_download(this.bypassCorsHeaders + this.urlencode(data.wm) + "&d=1", r);
+        this.force_download(this.bypassCorsHeaders + this.urlencode(data.audio) + "&d=1", r);
     }
     download_video = async () => {
         if (this.datas == null) {
@@ -76,6 +67,6 @@ class JSTikTok {
         }
         const data = JSON.parse(this.res)
         const r = (Math.random() + 1).toString(36).substring(2);
-        this.force_download(this.bypassCorsHeaders + this.urlencode(data.wm) + "&d=1", r);
+        this.force_download(this.bypassCorsHeaders + this.urlencode(data.nowm) + "&d=1", r);
     }
 }
