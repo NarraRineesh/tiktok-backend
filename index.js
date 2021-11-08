@@ -101,7 +101,7 @@ async function instaReel(URL) {
     });
     let $ = cheerio.load(data);
     let script = $("script").eq(4).html();
-    console.log(JSON.parse(/window\._sharedData = (.+);/g.exec(script)));
+    console.log(JSON.parse(/window\._sharedData = (.+);/g.exec(script)[1]));
     let {
         entry_data: {
             PostPage: {
