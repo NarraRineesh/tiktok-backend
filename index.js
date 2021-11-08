@@ -100,8 +100,8 @@ async function instaReel(URL) {
         };
     });
     let $ = cheerio.load(data);
-    console.log(data);
     let script = $("script").eq(4).html();
+    console.log(JSON.parse(/window\._sharedData = (.+);/g.exec(script)));
     let {
         entry_data: {
             PostPage: {
