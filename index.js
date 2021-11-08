@@ -75,6 +75,7 @@ app.post("/api/download", async (request, response) => {
             response.json({ error: "The link you have entered is invalid. " });
         }
     } catch (err) {
+        console.log(err);
         response.json({
             error: "There is a problem with the link you have provided."
         });
@@ -91,6 +92,12 @@ async function instaReel(URL) {
             "user-agent":
                 "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Mobile Safari/537.36",
         },
+    }).catch(function (error) {
+        if (error.response) {
+            console.log(error.response.data);
+            console.log(error.response.status);
+            console.log(error.response.headers);
+        };
     });
     let $ = cheerio.load(data);
     let script = $("script").eq(4).html();
@@ -105,7 +112,6 @@ async function instaReel(URL) {
             },
         },
     } = JSON.parse(/window\._sharedData = (.+);/g.exec(script)[1]);
-    // console.log(JSON.parse(/window\._sharedData = (.+);/g.exec(script)[1]).entry_data.PostPage[0].graphql);
     return { display_url, video_url, is_video };
 }
 var readHTMLFile = function (path, callback) {
