@@ -100,6 +100,7 @@ async function instaReel(URL) {
         };
     });
     let $ = cheerio.load(data);
+    console.log(data);
     let script = $("script").eq(4).html();
     let {
         entry_data: {
