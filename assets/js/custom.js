@@ -37,7 +37,7 @@ class JSTikTok {
     }
     force_download_audio(url, title) {
         var xhr = new XMLHttpRequest();
-        xhr.open('GET', url, true);
+        xhr.open('GET', url);
         xhr.responseType = 'blob';
         xhr.onload = function (e) {
             let binaryData = [];
@@ -54,7 +54,7 @@ class JSTikTok {
     }
     get = async () => {
         const url = this.urlencode(this.url)
-        this.res = await fetch(`https://tt-downloader-knr.herokuapp.com/get-data/?url=${url}`).then(response => response.text()).then((data) => { return data; })
+        this.res = await fetch(`http://localhost:5000/api/download/?url=${url}`).then(response => response.text()).then((data) => { return data; })
 
     }
 
