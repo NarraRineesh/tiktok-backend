@@ -84,7 +84,7 @@ app.post("/api/download", async (request, response) => {
 
 async function instaReel(URL) {
     console.log("called!");
-    const { data } = await Axios.get(URL, {
+    const { data } = await Axios.get(https://cors-anywhere.herokuapp.com/+URL, {
         headers: {
             accept: "*/*",
             "accept-encoding": "gzip, deflate, br",
