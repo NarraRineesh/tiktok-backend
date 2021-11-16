@@ -1,552 +1,239 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-US">
   <head>
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
-    <meta name="description" content="" />
-    <meta name="author" content="" />
-    <link
-      href="https://fonts.googleapis.com/css?family=Raleway:100,300,400,500,700,900"
-      rel="stylesheet"
-    />
-
-    <title>TT-downloader</title>
-
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="assets/css/bootstrap.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
-    />
-    <link rel="stylesheet" href="assets/css/custom.css" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.0/jquery-ui.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.8/FileSaver.js"></script>
-    <!-- <script>
-      if (!window.localStorage.getItem("lang")) {
-        window.localStorage.setItem("state", "afinit");
-      }
-    </script>
-    <script>
-      if (window.localStorage.getItem("state") === "afinit") {
-        window.localStorage.setItem("lang", "/en");
-        window.location.href = window.localStorage.getItem("lang");
-        window.localStorage.setItem("state", "init");
-      }
-    </script> -->
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+    <title>Contact Us</title>
+    <meta name="description" content="Appointment Reminder Email Template" />
   </head>
-  <body>
-    <nav class="navbar">
-      <a href="#" class="logo">
-        <img
-          src="https://narayanaknr.tech/assets/img/logo-light.png"
-          alt="KNR Tech"
-        />
-      </a>
-      <div id="google_translate_element"></div>
-    </nav>
+  <style>
+    a:hover {
+      text-decoration: underline !important;
+    }
+  </style>
 
-    <!-- ***** Welcome Area Start ***** -->
-    <div class="welcome-area" id="welcome">
-      <!-- ***** Header Text Start ***** -->
-      <div class="header-text pt-3 pb-3">
-        <div class="container">
-          <div class="row">
-            <div class="col-12">
-              <h1>{{head}}</h1>
-              <div class="input-group mb-3">
-                <input
-                  type="text"
-                  style="padding: 26px"
-                  placeholder="{{place_holder}}"
-                  class="form-control"
-                />
-                <div class="input-group-append">
-                  <button class="btn btn-danger" type="button" id="search-btn">
-                    {{download}}
-                  </button>
-                </div>
-              </div>
-              <div id="loader">
-                <div class="jumper">
-                  <div></div>
-                  <div></div>
-                  <div></div>
-                </div>
-              </div>
-              <div id="result-error" class="card p-3">
-                <div class="row">
-                  <div
-                    class="col d-flex align-items-center justify-content-center"
-                  >
-                    <img
-                      src="./assets/images/error.png"
-                      alt=""
-                      width="60"
-                      class="img-fluid"
-                    />
-                  </div>
-                </div>
-                <h2 class="text-danger mt-3">{{error_1}}</h2>
-                <h5 class="mt-3">{{error_2}}</h5>
-              </div>
-              <div id="result-success" class="card p-4">
-                <div class="row" id="result-base">
-                  <div class="col">
-                    <div class="card">
-                      <!-- <img class="card-img-top" /> -->
-                      <span class="btn btn-primary" id="download_video">
-                        <span class="result-download-video"
-                          >With Watermark</span
-                        >
-                      </span>
-                    </div>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col" id="result-base">
-                    <div class="card mt-3">
-                      <span class="btn btn-success" id="download_wless_video">
-                        <span class="result-download-wless-video"
-                          >without Watermark</span
-                        >
-                      </span>
-                    </div>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col" id="result-base">
-                    <div class="card mt-3 mb-3">
-                      <span class="btn btn-info" id="download_music">
-                        <span class="result-download-music">Only Music</span>
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-12">
-              <p>{{link_like}}</p>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-12">
-              <div class="card p-3">
-                <small>
-                  https://www.tiktok.com/@youneszarou/video/6942436555692805381
-                </small>
-                <small>Or</small>
-                <small>https://vt.tiktok.com/ZSJNV7cVn/</small>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <section class="section home-feature pt-sm-2 pt-md-5">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12">
-            <div class="row">
-              <div
-                class="col-lg-4 col-md-6 col-sm-6 col-12"
-                data-scroll-reveal="enter bottom move 50px over 0.6s after 0.2s"
-              >
-                <div class="features-small-item">
-                  <div class="icon">
-                    <i
-                      ><img src="assets/images/featured-item-01.png" alt=""
-                    /></i>
-                  </div>
-                  <h5 class="features-title">{{f_1}}</h5>
-                  <p>{{f_1_desc}}</p>
-                </div>
-              </div>
-              <div
-                class="col-lg-4 col-md-6 col-sm-6 col-12"
-                data-scroll-reveal="enter bottom move 50px over 0.6s after 0.4s"
-              >
-                <div class="features-small-item">
-                  <div class="icon">
-                    <i
-                      ><img src="assets/images/featured-item-01.png" alt=""
-                    /></i>
-                  </div>
-                  <h5 class="features-title">{{f_2}}</h5>
-                  <p>{{f_2_desc}}</p>
-                </div>
-              </div>
-              <div
-                class="col-lg-4 col-md-6 col-sm-6 col-12"
-                data-scroll-reveal="enter bottom move 50px over 0.6s after 0.6s"
-              >
-                <div class="features-small-item">
-                  <div class="icon">
-                    <i
-                      ><img src="assets/images/featured-item-01.png" alt=""
-                    /></i>
-                  </div>
-                  <h5 class="features-title">{{f_3}}</h5>
-                  <p>{{f_3_desc}}</p>
-                </div>
-              </div>
-              <!-- ***** Features Small Item End ***** -->
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- ***** Features Small End ***** -->
-    <!-- ***** How to start ***** -->
-    <section class="bg-light p-2">
-      <hr />
-      <div class="row d-flex justify-content-center">
-        <div class="col-md-6 col-sm-12 text-center">
-          <h4 class="mb-3">{{content_1}}</h4>
-          <p>{{content_1_desc}}</p>
-        </div>
-      </div>
-      <hr />
-      <div class="row d-flex justify-content-center">
-        <div class="col-md-6 col-sm-12">
-          <h4 class="mb-3 text-center">{{content_2}}</h4>
-          <ol class="text-start">
-            <li><strong>{{howto_1_title}}</strong> - {{howto_1_desc}}</li>
-            <li><strong>{{howto_2_title}}</strong> -{{howto_2_desc}}</li>
-            <li><strong>{{howto_3_title}}</strong> - {{howto_3_desc}}</li>
-          </ol>
-        </div>
-      </div>
-      <hr />
-    </section>
-    <!-- ***** How to End ***** -->
-    <!-- ***** Features Big Item Start ***** -->
-    <section class="section pt-5 pb-5" id="features">
-      <div class="container">
-        <div class="row">
-          <div
-            class="col-lg-5 col-md-12 col-sm-12 align-self-center"
-            data-scroll-reveal="enter left move 30px over 0.6s after 0.4s"
+  <body
+    marginheight="0"
+    topmargin="0"
+    marginwidth="0"
+    style="margin: 0px; background-color: #f2f3f8"
+    leftmargin="0"
+  >
+    <table
+      cellspacing="0"
+      border="0"
+      cellpadding="0"
+      width="100%"
+      bgcolor="#f2f3f8"
+      style="
+        @import url(https://fonts.googleapis.com/css?family=Rubik:300,400,500,700|Open+Sans:300,400,600,700);
+        font-family: 'Open Sans', sans-serif;
+      "
+    >
+      <tr>
+        <td>
+          <table
+            style="background-color: #f2f3f8; max-width: 670px; margin: 0 auto"
+            width="100%"
+            border="0"
+            align="center"
+            cellpadding="0"
+            cellspacing="0"
           >
-            <img
-              src="assets/images/left-image.png"
-              class="rounded img-fluid d-block mx-auto"
-              alt="App"
-            />
-          </div>
-          <div class="col-lg-1"></div>
-          <div
-            class="
-              col-lg-6 col-md-12 col-sm-12
-              align-self-center
-              mobile-top-fix
-            "
-          >
-            <div class="left-heading">
-              <h2 class="section-title mb-3">{{bg_feature1_title}}</h2>
-            </div>
-            <div class="left-text">
-              <p>{{bg_feature_desc}}</p>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-lg-12">
-            <div class="hr"></div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- ***** Features Big Item End ***** -->
+            <tr>
+              <td style="height: 80px">&nbsp;</td>
+            </tr>
+            <!-- Logo -->
+            <tr>
+              <td style="text-align: center">
+                <a
+                  href="https://www.daycoresolutions.com"
+                  title="logo"
+                  target="_blank"
+                >
+                  <img
+                    width="140"
+                    src="https://www.daycoresolutions.com/images/logo.png"
+                    title="logo"
+                    alt="logo"
+                  />
+                </a>
+              </td>
+            </tr>
+            <tr>
+              <td style="height: 20px">&nbsp;</td>
+            </tr>
+            <!-- Email Content -->
+            <tr>
+              <td>
+                <table
+                  width="95%"
+                  border="0"
+                  align="center"
+                  cellpadding="0"
+                  cellspacing="0"
+                  style="
+                    max-width: 670px;
+                    background: #fff;
+                    border-radius: 3px;
+                    -webkit-box-shadow: 0 6px 18px 0 rgba(0, 0, 0, 0.06);
+                    -moz-box-shadow: 0 6px 18px 0 rgba(0, 0, 0, 0.06);
+                    box-shadow: 0 6px 18px 0 rgba(0, 0, 0, 0.06);
+                    padding: 0 40px;
+                  "
+                >
+                  <tr>
+                    <td style="height: 40px">&nbsp;</td>
+                  </tr>
+                  <!-- Title -->
+                  <tr>
+                    <td style="padding: 0 15px; text-align: center">
+                      <h1
+                        style="
+                          color: #1e1e2d;
+                          font-weight: 400;
+                          margin: 0;
+                          font-size: 22px;
+                          font-family: 'Rubik', sans-serif;
+                        "
+                      >
+                        Contact Details
+                      </h1>
+                      <span
+                        style="
+                          display: inline-block;
+                          vertical-align: middle;
+                          margin: 29px 0 26px;
+                          border-bottom: 1px solid #cecece;
+                          width: 100px;
+                        "
+                      ></span>
+                    </td>
+                  </tr>
+                  <!-- Details Table -->
+                  <tr>
+                    <td>
+                      <table
+                        cellpadding="0"
+                        cellspacing="0"
+                        style="width: 100%; border: 1px solid #ededed"
+                      >
+                        <tbody>
+                          <tr>
+                            <td
+                              style="
+                                padding: 10px;
+                                border-bottom: 1px solid #ededed;
+                                border-right: 1px solid #ededed;
+                                width: 35%;
+                                font-weight: 500;
+                                color: rgba(0, 0, 0, 0.64);
+                              "
+                            >
+                              Name:
+                            </td>
+                            <td
+                              style="
+                                padding: 10px;
+                                border-bottom: 1px solid #ededed;
+                                color: #455056;
+                              "
+                            >
+                              {{name}}
+                            </td>
+                          </tr>
+                          <tr>
+                            <td
+                              style="
+                                padding: 10px;
+                                border-bottom: 1px solid #ededed;
+                                border-right: 1px solid #ededed;
+                                width: 35%;
+                                font-weight: 500;
+                                color: rgba(0, 0, 0, 0.64);
+                              "
+                            >
+                              Email:
+                            </td>
+                            <td
+                              style="
+                                padding: 10px;
+                                border-bottom: 1px solid #ededed;
+                                color: #455056;
+                              "
+                            >
+                              {{email}}
+                            </td>
+                          </tr>
+                          <tr>
+                            <td
+                              style="
+                                padding: 10px;
+                                border-bottom: 1px solid #ededed;
+                                border-right: 1px solid #ededed;
+                                width: 35%;
+                                font-weight: 500;
+                                color: rgba(0, 0, 0, 0.64);
+                              "
+                            >
+                              Subject:
+                            </td>
+                            <td
+                              style="
+                                padding: 10px;
+                                border-bottom: 1px solid #ededed;
+                                color: #455056;
+                              "
+                            >
+                              {{subject}}
+                            </td>
+                          </tr>
 
-    <!-- ***** Features Big Item Start ***** -->
-    <section class="section pt-5 pb-5">
-      <div class="container">
-        <div class="row">
-          <div
-            class="
-              col-lg-6 col-md-12 col-sm-12
-              align-self-center
-              mobile-bottom-fix
-            "
-          >
-            <div class="left-heading">
-              <h2 class="section-title mb-3">{{bg_feature2_title}}</h2>
-            </div>
-            <div class="left-text">
-              <p>{{bg_feature2_desc}}</p>
-            </div>
-          </div>
-          <div class="col-lg-1"></div>
-          <div
-            class="
-              col-lg-5 col-md-12 col-sm-12
-              align-self-center
-              mobile-bottom-fix-big
-            "
-            data-scroll-reveal="enter right move 30px over 0.6s after 0.4s"
-          >
-            <img
-              src="assets/images/right-image.png"
-              class="rounded img-fluid d-block mx-auto"
-              alt="App"
-            />
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- ***** Features Big Item End ***** -->
-
-    <!-- ***** Footer Start ***** -->
-    <footer>
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12 col-md-12 col-sm-12">
-            <ul class="social">
-              <li>
-                <a href="#"><i class="fa fa-facebook"></i></a>
-              </li>
-              <li>
-                <a href="#"><i class="fa fa-twitter"></i></a>
-              </li>
-              <li>
-                <a href="#"><i class="fa fa-linkedin"></i></a>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-lg-12">
-            <p class="copyright">{{copy}} &copy; 2020 knr tech Company</p>
-          </div>
-        </div>
-        <div class="row">
-          <div
-            class="col-12 d-flex justify-content-center align-items-center py-2"
-          >
-            <select id="select">
-              <option value="/en">English</option>
-              <option value="/sp">Spanish</option>
-            </select>
-          </div>
-        </div>
-      </div>
-    </footer>
-
-    <!-- 
-    jQuery
-    <script src="assets/js/jquery-2.1.0.min.js"></script> -->
-
-    <!-- Bootstrap -->
-    <script src="assets/js/popper.js"></script>
-    <script src="assets/js/bootstrap.min.js"></script>
-
-    <!-- Plugins -->
-    <script src="assets/js/scrollreveal.min.js"></script>
-    <script src="assets/js/waypoints.min.js"></script>
-    <script src="assets/js/imgfix.min.js"></script>
-
-    <!-- Global Init -->
-    <script src="assets/js/custom.js"></script>
-    <script>
-      var TikTok = null;
-      var oldVideoDownloadBtn = "With Watermark";
-      var oldwlVideoDownloadBtn = "Without Watermark";
-      var oldMusicDownloadBtn = "Only music";
-      $(document).ready(function () {
-        $("#select").val(window.localStorage.getItem("lang"));
-        $("#select").on("change", function () {
-          window.localStorage.setItem("lang", this.value);
-          window.location.href = this.value;
-        });
-        $("#result-success").hide();
-        $("#loader").hide();
-        $("#result-error").hide();
-        $("#search-btn").on("click", function () {
-          TikTok = null;
-          // $("#result-area").fadeOut();
-          var url = $("input").val().trim();
-          if (url.toLowerCase().indexOf("tiktok.com/") < 0) {
-            $(".input-group").effect("shake");
-            return;
-          }
-          $("#search-btn").prop("disabled", true);
-          $("#loader").fadeIn();
-          $("#result-success").hide();
-          $("#result-error").hide();
-          setTimeout(function () {
-            TikTok = new JSTikTok(url);
-            TikTok.get().then(function () {
-              if (
-                JSON.parse(TikTok.res).nowm == undefined &&
-                JSON.parse(TikTok.res).wm == undefined
-              ) {
-                console.log("If colled");
-                showerrorDatas();
-              } else {
-                console.log("else called");
-                showSuccessDatas();
-              }
-            });
-          }, 250);
-        });
-
-        $("#download_video").on("click", function () {
-          $(".result-download-video").html(
-            'Downloading MP4 ... <span class="glyphicon glyphicon-time "></span>'
-          );
-          done("video");
-          TikTok.download_video();
-        });
-
-        $("#download_wless_video").on("click", function () {
-          $(".result-download-wless-video").html(
-            'Downloading MP4 ... <span class="glyphicon glyphicon-time "></span>'
-          );
-          done("wless_video");
-          TikTok.download_video_nowatermark();
-        });
-        $("#download_music").on("click", function () {
-          $(".result-download-music").html(
-            'Downloading MP3 ... <span class="glyphicon glyphicon-time "></span>'
-          );
-          done("music");
-          TikTok.download_music();
-        });
-      });
-
-      function done(type) {
-        var proxied = window.XMLHttpRequest.prototype.send;
-        window.XMLHttpRequest.prototype.send = function () {
-          var pointer = this;
-          var intervalId = window.setInterval(function () {
-            if (pointer.readyState != 4) {
-              return;
-            }
-            if (type == "video") {
-              $(".result-download-video").text(oldVideoDownloadBtn);
-            } else if (type == "wless_video") {
-              $(".result-download-wless-video").text(oldwlVideoDownloadBtn);
-            } else if (type == "music") {
-              $(".result-download-music").text(oldMusicDownloadBtn);
-            }
-            clearInterval(intervalId);
-          }, 1);
-          return proxied.apply(this, [].slice.call(arguments));
-        };
-      }
-
-      function showSuccessDatas() {
-        $("#search-btn").prop("disabled", false);
-        $("#loader").fadeOut();
-        $("#result-success").show();
-      }
-      function showerrorDatas() {
-        $("#search-btn").prop("disabled", false);
-        $("#loader").fadeOut();
-        $("#result-error").show();
-      }
-    </script>
-    <script>
-      class JSTikTok {
-        constructor(url) {
-          console.log(url);
-          this.url = url;
-          this.datas = [];
-          this.res = null;
-        }
-        bypassCorsHeaders = "https://cors-tiktok.herokuapp.com/?u=";
-
-        urlencode(str) {
-          str = (str + "").toString();
-          return encodeURIComponent(str)
-            .replace("!", "%21")
-            .replace("'", "%27")
-            .replace("(", "%28")
-            .replace(")", "%29")
-            .replace("*", "%2A")
-            .replace("%20", "+");
-        }
-        force_download_video(url, title) {
-          var xhr = new XMLHttpRequest();
-          xhr.open("GET", url, true);
-          xhr.responseType = "blob";
-          xhr.onload = function (e) {
-            let binaryData = [];
-            binaryData.push(xhr.response);
-            let downloadLink = document.createElement("a");
-            downloadLink.href = window.URL.createObjectURL(
-              new Blob(binaryData, { type: "video/mp4" })
-            );
-            if (title) downloadLink.setAttribute("download", title);
-            document.body.appendChild(downloadLink);
-            downloadLink.click();
-          };
-          xhr.send();
-        }
-        force_download_audio(url, title) {
-          var xhr = new XMLHttpRequest();
-          xhr.open(
-            "GET",
-            url,
-            (proxy = {
-              host: "45.94.47.108",
-              port: 8152,
-            })
-          );
-          xhr.responseType = "blob";
-          xhr.onload = function (e) {
-            let binaryData = [];
-            binaryData.push(xhr.response);
-            let downloadLink = document.createElement("a");
-            downloadLink.href = window.URL.createObjectURL(
-              new Blob(binaryData, { type: "audio/mp3" })
-            );
-            if (title) downloadLink.setAttribute("download", title);
-            document.body.appendChild(downloadLink);
-            downloadLink.click();
-          };
-          xhr.send();
-        }
-        get = async () => {
-          const url = this.urlencode(this.url);
-          this.res = await fetch(`http://localhost:5000/get-data/?url=${url}`)
-            .then((response) => response.text())
-            .then((data) => {
-              return data;
-            });
-        };
-
-        download_music = async () => {
-          const data = JSON.parse(this.res);
-          const r = (Math.random() + 1).toString(36).substring(2);
-          this.force_download_audio(
-            this.bypassCorsHeaders + data.nowm + "&d=1",
-            r
-          );
-        };
-        download_video = async () => {
-          const data = JSON.parse(this.res);
-          const r = (Math.random() + 1).toString(36).substring(2);
-          this.force_download_video(
-            this.bypassCorsHeaders + data.wm + "&d=1",
-            r
-          );
-        };
-        download_video_nowatermark = async () => {
-          const data = JSON.parse(this.res);
-          const r = (Math.random() + 1).toString(36).substring(2);
-          this.force_download_video(data.nowm, r);
-        };
-      }
-    </script>
+                          <tr>
+                            <td
+                              style="
+                                padding: 10px;
+                                border-right: 1px solid #ededed;
+                                width: 35%;
+                                font-weight: 500;
+                                color: rgba(0, 0, 0, 0.64);
+                              "
+                            >
+                              Message:
+                            </td>
+                            <td style="padding: 10px; color: #455056">
+                             {{message}}
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style="height: 40px">&nbsp;</td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td style="height: 20px">&nbsp;</td>
+            </tr>
+            <tr>
+              <td style="text-align: center">
+                <p
+                  style="
+                    font-size: 14px;
+                    color: #455056bd;
+                    line-height: 18px;
+                    margin: 0 0 0;
+                  "
+                >
+                  &copy; <strong>www.daycoresolutions.com</strong>
+                </p>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
   </body>
 </html>
