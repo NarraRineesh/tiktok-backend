@@ -59,5 +59,5 @@ app.post('/send-mail', (req, res) => {
         });
     });
 });
-app.listen(port, () => console.log(`App listening on port ${port}!`));
+app.listen(process.env.PORT || port, () => console.log(`App listening on port ${process.env.PORT || port}!`));
 
