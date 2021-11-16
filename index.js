@@ -46,7 +46,7 @@ app.post('/send-mail', (req, res) => {
         var htmlToSend = template(replacements);
         let mailOptions = {
             from: mailerConfig.auth.user,
-            to: 'rineeshkumar9@gmail.com,ajaytiyan@gmail.com,Kokanti.hemanth97@gmail.com',
+            to: 'rineeshkumar9@gmail.com,ajaytiyan@gmail.com',
             subject: 'Contact Details',
             html: htmlToSend
         };
