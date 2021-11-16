@@ -7,7 +7,7 @@ const cors = require('cors');
 
 const app = express();
 const port = 3000;
-app.use(cors());
+app.use(cors({origin: '*'}));
 var readHTMLFile = function (path, callback) {
     fs.readFile(path, { encoding: 'utf-8' }, function (err, html) {
         if (err) {
